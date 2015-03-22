@@ -1,0 +1,78 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public enum Side {
+    PlayerSide,
+    EnemySide
+}
+
+public class BulletScript : MonoBehaviour {
+    private Vector3 velocity;
+    private Side side;
+
+    private GameObject shield;
+    private GameObject attackBounds;
+
+	// Use this for initialization
+	void Start () {
+        side = Side.EnemySide;
+	}
+
+    void MoveBullet() {
+        Vector3 delta = velocity * Time.deltaTime;
+
+        bool hitShield = false;
+        if (shield) hitShield = shield.GetComponent<Collider>().bounds.Contains(transform.position);
+
+        bool inAttackBounds = false;
+        if (attackBounds) inAttackBounds = attackBounds.GetComponent<Collider>().bounds.Contains(transform.position);
+
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, delta, out hit, delta.magnitude * 1.5f)) {
+           if (hit.collider.tag == "Shield") hitShield = true;
+        }
+
+        if (side == Side.EnemySide) {
+            if (inAttackBounds) {
+                side = Side.PlayerSide;
+                velocity = velocity.magnitude * attackBounds.transform.forward;
+                Debug.Log("Attacked");
+                return;
+            }
+
+            if(hitShield) {
+                velocity = Vector3.Reflect(velocity, shield.transform.forward);
+                side = Side.PlayerSide;
+                Debug.Log("In Shield");
+                return;
+            }
+        }
+
+        transform.Translate(delta);
+    }
+	
+	// Update is called once per frame
+	void Update () {
+        shield = GameObject.FindGameObjectWithTag("Shield");
+        attackBounds = GameObject.FindGameObjectWithTag("AttackBounds");
+
+        MoveBullet();
+	}
+
+    public void SetVelocity(Vector3 vel) {
+        velocity = vel;
+    }
+
+    /*void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.collider.tag);
+        if(collision.collider.tag == "Shield") {
+            
+                GetComponent<Rigidbody>().velocity = -GetComponent<Rigidbody>().velocity;
+                side = Side.PlayerSide;
+            }
+            
+        }
+    }*/
+}
