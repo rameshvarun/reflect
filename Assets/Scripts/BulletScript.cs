@@ -13,9 +13,12 @@ public class BulletScript : MonoBehaviour {
     private GameObject shield;
     private GameObject attackBounds;
 
+    private GameObject player;
+
 	// Use this for initialization
 	void Start () {
         side = Side.EnemySide;
+        player = GameObject.FindGameObjectWithTag("Player");
         Invoke("EndOfLife", 10.0f);
 	}
 
@@ -43,6 +46,7 @@ public class BulletScript : MonoBehaviour {
             if (inAttackBounds) {
                 side = Side.PlayerSide;
                 velocity = velocity.magnitude * attackBounds.transform.forward;
+                transform.position = player.GetComponent<PlayerScript>().bulletPosition(Vector3.Distance(transform.position, player.transform.position));
                 Debug.Log("Attacked");
                 return;
             }

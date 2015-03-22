@@ -26,6 +26,14 @@ public class PlayerScript : MonoBehaviour {
 	void Start () {
         controller = GetComponent<CharacterController>(); // Character Controller
         attacking = false; // Start out not attacking
+
+        // Player Sprite Shadows
+        GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+        GetComponent<SpriteRenderer>().receiveShadows = true;
+
+        // Sword Sprite Shadows
+        sword.GetComponentInChildren<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+        sword.GetComponentInChildren<SpriteRenderer>().receiveShadows = true;
 	}
 
     Vector3 lastAim;
@@ -39,6 +47,15 @@ public class PlayerScript : MonoBehaviour {
     public Vector3 targetPosition() {
         if (lastAim.magnitude > 0.2) return transform.position + 0.2f*lastAim.normalized;
         else return transform.position;
+    }
+
+    /// <summary>
+    /// Get the position where an attacked bullet should spawn at.
+    /// </summary>
+    /// <param name="distance">How far from the player the bullet was when it was attacked.</param>
+    /// <returns>The position to place the bullet at for the next grame.</returns>
+    public Vector3 bulletPosition(float distance) {
+        return transform.position + attackDirection.normalized * distance;
     }
 	
 	// Update is called once per frame
