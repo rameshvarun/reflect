@@ -101,7 +101,7 @@ public class PlayerScript : MonoBehaviour {
 
             if (aim.magnitude > 0.2 && Mathf.Abs(trigger) > 0.2 && Mathf.Abs(lastTrigger) < 0.2) {
                 attacking = true;
-                attackTime = 0.1f;
+                attackTime = 0.2f;
                 attackDirection = aim.normalized;
             }
         }
