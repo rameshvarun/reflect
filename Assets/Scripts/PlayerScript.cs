@@ -64,6 +64,13 @@ public class PlayerScript : MonoBehaviour {
         Vector3 aim = new Vector3(Input.GetAxis("AttackHorizontal"), 0, Input.GetAxis("AttackVertical"));
         float trigger = Input.GetAxis("Attack");
 
+        // Mouse controls
+        if (Input.GetMouseButton(1)) {
+            Vector3 diff = new Vector3(Input.mousePosition.x - Screen.width/2, 0, Input.mousePosition.y - Screen.height / 2);
+            aim = diff.normalized;
+            if (Input.GetMouseButton(0)) trigger = 1.0f;
+        }
+
         if (attacking) movement = Vector3.zero; // Can't move while attacking
         float speed = (aim.magnitude > 0.2) ? walkSpeed : runSpeed;
         controller.SimpleMove(speed * movement);
