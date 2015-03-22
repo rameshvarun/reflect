@@ -3,7 +3,9 @@ using System.Collections;
 
 public class PlayerScript : MonoBehaviour {
     private CharacterController controller;
-    public float movementSpeed;
+
+    public float runSpeed;
+    public float walkSpeed;
 
     public float shieldDistance;
     public float attackDistance;
@@ -28,6 +30,16 @@ public class PlayerScript : MonoBehaviour {
 
     Vector3 lastAim;
     float lastTrigger;
+
+    /// <summary>
+    /// Get the location on the player's body that enemies should aim bullets at.
+    /// This allows enemeis to aim slightly towards the player's weapon.
+    /// </summary>
+    /// <returns>The location</returns>
+    public Vector3 targetPosition() {
+        if (lastAim.magnitude > 0.2) return transform.position + 0.2f*lastAim.normalized;
+        else return transform.position;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -36,8 +48,8 @@ public class PlayerScript : MonoBehaviour {
         float trigger = Input.GetAxis("Attack");
 
         if (attacking) movement = Vector3.zero; // Can't move while attacking
-
-        controller.SimpleMove(movementSpeed*movement);
+        float speed = (aim.magnitude > 0.2) ? walkSpeed : runSpeed;
+        controller.SimpleMove(speed * movement);
 
         if (shieldMode) {
             if (aim.magnitude > 0.2) {
@@ -95,7 +107,8 @@ public class PlayerScript : MonoBehaviour {
             attackBounds.gameObject.SetActive(false); // Don't draw attack bounds
         }
 
-        lastAim = aim; // Keep track of the aim from the previous frame
+        // Keep track of Input data from the previous frame
+        lastAim = aim;
         lastTrigger = trigger;
 	}
 }

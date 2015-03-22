@@ -36,6 +36,7 @@ public class BulletScript : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, delta, out hit, delta.magnitude * 1.5f)) {
            if (hit.collider.tag == "Shield") hitShield = true;
+           if (hit.collider.tag == "Player") EndOfLife();
         }
 
         if (side == Side.EnemySide) {
