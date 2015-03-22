@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour {
     public Transform shield;
     public Transform attackBounds;
     public Transform sword;
+    public Transform playerSprite;
     
     public bool shieldMode;
 
@@ -28,8 +29,8 @@ public class PlayerScript : MonoBehaviour {
         attacking = false; // Start out not attacking
 
         // Player Sprite Shadows
-        GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
-        GetComponent<SpriteRenderer>().receiveShadows = true;
+        playerSprite.GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+        playerSprite.GetComponent<SpriteRenderer>().receiveShadows = true;
 
         // Sword Sprite Shadows
         sword.GetComponentInChildren<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
