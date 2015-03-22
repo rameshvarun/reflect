@@ -16,7 +16,12 @@ public class BulletScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         side = Side.EnemySide;
+        Invoke("EndOfLife", 10.0f);
 	}
+
+    public void EndOfLife() {
+        Destroy(this.gameObject);
+    }
 
     void MoveBullet() {
         Vector3 delta = velocity * Time.deltaTime;
