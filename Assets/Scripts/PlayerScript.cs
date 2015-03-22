@@ -7,9 +7,11 @@ public class PlayerScript : MonoBehaviour {
 
     public float shieldDistance;
     public float attackDistance;
+    public float swordDistance;
 
     public Transform shield;
     public Transform attackBounds;
+    public Transform sword;
     
     public bool shieldMode;
 
@@ -25,11 +27,14 @@ public class PlayerScript : MonoBehaviour {
 	}
 
     Vector3 lastAim;
+    float lastTrigger;
 	
 	// Update is called once per frame
 	void Update () {
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         Vector3 aim = new Vector3(Input.GetAxis("AttackHorizontal"), 0, Input.GetAxis("AttackVertical"));
+        float trigger = Input.GetAxis("Attack");
+
         if (attacking) movement = Vector3.zero; // Can't move while attacking
 
         controller.SimpleMove(movementSpeed*movement);
@@ -54,7 +59,18 @@ public class PlayerScript : MonoBehaviour {
         else {
             shield.gameObject.SetActive(false);
 
-            if (attacking == false && aim.magnitude >= 0.5 && lastAim.magnitude <= 0.5) {
+            if (aim.magnitude > 0.2 || attacking) {
+                sword.gameObject.SetActive(true);
+
+                if (!attacking) {
+                    sword.localPosition = swordDistance * aim.normalized;
+                    sword.rotation = Quaternion.LookRotation(aim.normalized);
+                }
+            } else {
+                sword.gameObject.SetActive(false);
+            }
+
+            if (aim.magnitude > 0.2 && Mathf.Abs(trigger) > 0.2 && Mathf.Abs(lastTrigger) < 0.2) {
                 attacking = true;
                 attackTime = 0.1f;
                 attackDirection = aim.normalized;
@@ -80,5 +96,6 @@ public class PlayerScript : MonoBehaviour {
         }
 
         lastAim = aim; // Keep track of the aim from the previous frame
+        lastTrigger = trigger;
 	}
 }

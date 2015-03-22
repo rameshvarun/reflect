@@ -449,48 +449,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
---- !u!1001 &1854703498
+--- !u!1001 &1744782879
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 442824, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
+    - target: {fileID: 436230, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 1.16999996
       objectReference: {fileID: 0}
-    - target: {fileID: 442824, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
+    - target: {fileID: 436230, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
       propertyPath: m_LocalPosition.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 442824, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
+    - target: {fileID: 436230, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
       propertyPath: m_LocalPosition.z
       value: -.660000026
       objectReference: {fileID: 0}
-    - target: {fileID: 442824, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
+    - target: {fileID: 436230, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 442824, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
+    - target: {fileID: 436230, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 442824, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
+    - target: {fileID: 436230, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 442824, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
+    - target: {fileID: 436230, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 442824, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
+    - target: {fileID: 436230, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11422354, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
-      propertyPath: attackDistance
-      value: .600000024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 064c2929e00a5da40b0ac287a0ac54e1, type: 2}
