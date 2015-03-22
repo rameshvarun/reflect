@@ -64,6 +64,8 @@ public class PlayerScript : MonoBehaviour {
         Vector3 aim = new Vector3(Input.GetAxis("AttackHorizontal"), 0, Input.GetAxis("AttackVertical"));
         float trigger = Input.GetAxis("Attack");
 
+        if (Input.GetKeyDown(KeyCode.Space)) shieldMode = !shieldMode;
+
         // Mouse controls
         if (Input.GetMouseButton(1)) {
             Vector3 diff = new Vector3(Input.mousePosition.x - Screen.width/2, 0, Input.mousePosition.y - Screen.height / 2);
