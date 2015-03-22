@@ -10,6 +10,10 @@ public class TestEnemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
+
+        // Sprite Shadows
+        GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+        GetComponent<SpriteRenderer>().receiveShadows = true;
 	}
 	
 	// Update is called once per frame

@@ -119,8 +119,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: .699999988}
-  m_LocalScale: {x: .723418295, y: 1, z: 1.06656432}
+  m_LocalPosition: {x: 0, y: 0, z: .800999999}
+  m_LocalScale: {x: 1.13969004, y: 1, z: 1.29989576}
   m_Children: []
   m_Father: {fileID: 436230}
   m_RootOrder: 1
@@ -180,10 +180,10 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161820}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6b50379f785962542a00ae51de48c557, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -249,7 +249,7 @@ MonoBehaviour:
   runSpeed: 4
   walkSpeed: 2
   shieldDistance: .5
-  attackDistance: .600000024
+  attackDistance: .800000012
   swordDistance: .200000003
   shield: {fileID: 413236}
   attackBounds: {fileID: 445294}

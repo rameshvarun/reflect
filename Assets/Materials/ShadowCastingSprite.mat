@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: ShadowCastingSprite
-  m_Shader: {fileID: 4800000, guid: aefd7f1f405246549a250b2034dee3f3, type: 3}
+  m_Shader: {fileID: 52, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
