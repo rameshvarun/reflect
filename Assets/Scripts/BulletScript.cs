@@ -67,11 +67,11 @@ public class BulletScript : MonoBehaviour {
         shield = GameObject.FindGameObjectWithTag("Shield");
         attackBounds = GameObject.FindGameObjectWithTag("AttackBounds");
 
-        MoveBullet();
+        //MoveBullet();
 	}
 
     public void SetVelocity(Vector3 vel) {
-        velocity = vel;
+        GetComponent<Rigidbody>().velocity = vel;
     }
 
     /*void OnCollisionEnter(Collision collision)
