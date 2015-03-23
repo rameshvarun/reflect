@@ -32,7 +32,7 @@ public class PlayerScript : MonoBehaviour {
     /// </summary>
     /// <returns>The location</returns>
     public Vector3 targetPosition() {
-        if (isAiming) return transform.position + shieldDistance*aimDirection;
+        if (isAiming) return transform.position;// + shieldDistance*aimDirection;
         else return transform.position;
     }
 
